@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N Nova - A quieter kind of social</title>
+    <!-- Подключение шрифта Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Настройка кастомных цветов из брендбука -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1A2B3C',    /* Основной цвет */
+                            teal: '#00E5C9',    /* Акцентный цвет */
+                            gray: '#808080',    /* Текст вторичный */
+                            light: '#F8F9FA',   /* Фоновый */
+                            white: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Плавные переходы */
+        * { transition: all 0.2s ease-in-out; }
+        
+        /* Мягкий градиент для Hero секции */
+        .hero-bg {
+            background: radial-gradient(circle at 70% 50%, rgba(0, 229, 201, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 10% 20%, rgba(26, 43, 60, 0.03) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark bg-brand-light antialiased">
+
+    <!-- Шапка (Header) -->
+    <header class="flex justify-between items-center py-5 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="flex items-center gap-2">
+            <!-- Логотип N -->
+            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 80V20L80 80V20" stroke="#1A2B3C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 80L80 80" stroke="#00E5C9" stroke-width="12" stroke-linecap="round"/>
+            </svg>
+            <span class="text-xl font-bold tracking-tight">N Nova</span>
+        </div>
+        
+        <nav class="hidden md:flex gap-8 text-sm font-medium text-brand-gray">
+            <a href="#" class="hover:text-brand-dark">Discover</a>
+            <a href="#" class="hover:text-brand-dark">Features</a>
+            <a href="#" class="hover:text-brand-dark">For creators</a>
+            <a href="#" class="hover:text-brand-dark">Community</a>
+        </nav>
+
+        <a href="#" class="bg-brand-teal text-brand-dark font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-opacity-80">
+            Get started
+        </a>
+    </header>
+
+    <!-- Hero Секция -->
+    <section class="hero-bg py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        
+        <!-- Текстовая часть -->
+        <div class="w-full lg:w-1/2 space-y-6">
+            <p class="text-sm font-semibold tracking-wider text-brand-gray uppercase">A quieter kind of social.</p>
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                Your ideas deserve more than a scroll.
+            </h1>
+            <p class="text-brand-gray text-lg max-w-md">
+                A thoughtful space to share what you create, discover what inspires you, and connect with people who care.
+            </p>
+            <div class="flex gap-4 pt-4">
+                <a href="feed.html" class="bg-brand-teal text-brand-dark font-semibold px-6 py-3 rounded-full hover:bg-opacity-80">
+                    Get started →
+                </a>
+                <a href="#" class="border border-brand-gray/30 text-brand-dark font-medium px-6 py-3 rounded-full hover:border-brand-dark">
+                    Explore Nova
+                </a>
+            </div>
+            <p class="text-xs text-brand-gray pt-2">Free to join. A little less noise, every day.</p>
+        </div>
+
+        <!-- Изображение / Мокап приложения -->
+        <div class="w-full lg:w-1/2 relative">
+            <div class="bg-brand-dark rounded-3xl p-6 shadow-2xl text-white">
+                <!-- Верхняя панель мокапа -->
+                <div class="flex justify-between items-center mb-4 text-xs text-gray-400">
+                    <span>For you</span>
+                    <div class="flex gap-4">
+                        <span>Following</span>
+                        <span>Create +</span>
+                    </div>
+                </div>
+                
+                <!-- Карточка поста -->
+                <div class="bg-[#243649] rounded-xl p-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 bg-brand-gray rounded-full"></div>
+                        <div>
+                            <p class="text-sm font-semibold">N Nova</p>
+                            <p class="text-xs text-gray-400">FIELD NOTES · By Alex Morgan · 2h</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Плейсхолдер картинки (Горы) -->
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800&h=400" alt="Mountain landscape" class="w-full h-48 object-cover rounded-lg mb-3">
+                    
+                    <h3 class="text-lg font-semibold mb-1">Some places make room for a new perspective.</h3>
+                    <p class="text-xs text-gray-400 mb-4">112 · 12 conversations · Save for later</p>
+                    
+                    <div class="flex justify-between items-center text-xs text-gray-400 border-t border-gray-600 pt-3">
+                        <span>CURATED BY CURIOSITY, NOT THE NOISE.</span>
+                        <span>N / 01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 1: Преимущества -->
+    <section class="py-20 px-6 md:px-12 max-w-7xl mx-auto border-t border-gray-200">
+        <div class="flex justify-between items-end mb-12">
+            <h2 class="text-3xl font-semibold max-w-lg">More of what brings you here.</h2>
+            <p class="text-brand-gray text-sm hidden md:block max-w-xs text-right">Less distraction. More discovery. A place to make your own.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Пункт 1 -->
+            <div>
+                <p class="text-xs text-brand-gray mb-4">01</p>
+                <h3 class="text-xl font-semibold mb-3">A feed that feels like you</h3>
+                <p class="text-brand-gray text-sm mb-6">Follow the ideas, people, and perspectives you care about. Keep the rest out of your way.</p>
+                <a href="#" class="text-sm font-semibold underline decoration-brand-teal decoration-2 underline-offset-4 hover:text-brand-gray">Discover your feed →</a>
+            </div>
+            <!-- Пункт 2 -->
+            <div>
+                <p class="text-xs text-brand-gray mb-4">02</p>
+                <h3 class="text-xl font-semibold mb-3">Create without the clutter</h3>
+                <p class="text-brand-gray text-sm mb-6">From a fleeting thought to your next big project. Share it in a space that lets your work breathe.</p>
+                <a href="#" class="text-sm font-semibold underline decoration-brand-teal decoration-2 underline-offset-4 hover:text-brand-gray">Make something yours →</a>
+            </div>
+            <!-- Пункт 3 -->
+            <div>
+                <p class="text-xs text-brand-gray mb-4">03</p>
+                <h3 class="text-xl font-semibold mb-3">Go beyond the follow</h3>
+                <p class="text-brand-gray text-sm mb-6">Turn shared interests into real conversations. Find your circle, then see where it takes you.</p>
+                <a href="#" class="text-sm font-semibold underline decoration-brand-teal decoration-2 underline-offset-4 hover:text-brand-gray">Find your community →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 2: Пространства -->
+    <section class="py-20 px-6 md:px-12 max-w-7xl mx-auto border-t border-gray-200">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <p class="text-xs text-brand-gray uppercase tracking-wider mb-2">02 / Your space, your way</p>
+                <h2 class="text-3xl font-semibold">One space. So many possibilities.</h2>
+            </div>
+            <a href="#" class="text-sm font-semibold hidden md:block hover:text-brand-gray">Explore what's possible →</a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Левая карточка (Изображение) -->
+            <div class="relative rounded-2xl overflow-hidden group h-80 cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800&h=600" alt="Studio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                    <p class="text-white text-xs uppercase tracking-wider mb-1">Studio Journal</p>
+                    <h3 class="text-white text-2xl font-semibold">A work in progress</h3>
+                </div>
+            </div>
+
+            <!-- Правая карточка (Список) -->
+            <div class="bg-brand-dark text-white rounded-2xl p-8 flex flex-col justify-between h-80">
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Find your kind of curious.</h3>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center border-b border-gray-600 pb-3 cursor-pointer group">
+                            <div>
+                                <p class="text-xs text-brand-teal mb-1">01</p>
+                                <p class="font-medium group-hover:text-brand-teal">Design & culture</p>
+                            </div>
+                            <span class="text-xs text-gray-400">Explore perspectives →</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-600 pb-3 cursor-pointer group">
+                            <div>
+                                <p class="text-xs text-brand-teal mb-1">02</p>
+                                <p class="font-medium group-hover:text-brand-teal">Out of office</p>
+                            </div>
+                            <span class="text-xs text-gray-400">See where the everyday leads →</span>
+                        </li>
+                        <li class="flex justify-between items-center cursor-pointer group">
+                            <div>
+                                <p class="text-xs text-brand-teal mb-1">03</p>
+                                <p class="font-medium group-hover:text-brand-teal">The creative process</p>
+                            </div>
+                            <span class="text-xs text-gray-400">Share ideas, share progress →</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Текст под карточками -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
+            <div>
+                <h4 class="font-semibold text-lg mb-2">For the things you make.</h4>
+                <p class="text-brand-gray text-sm mb-4">Build a living collection of your ideas, projects, and everyday discoveries.</p>
+                <a href="#" class="text-sm font-semibold underline decoration-brand-teal decoration-2 underline-offset-4 hover:text-brand-gray">Create your space →</a>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg mb-2">For the people you haven't met. Yet.</h4>
+                <p class="text-brand-gray text-sm mb-4">Discover communities built around what moves you. A shared interest is all it takes to belong.</p>
+                <a href="#" class="text-sm font-semibold underline decoration-brand-teal decoration-2 underline-offset-4 hover:text-brand-gray">Discover your circle →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 3: Отзывы -->
+    <section class="py-20 px-6 md:px-12 max-w-7xl mx-auto border-t border-gray-200">
+        <div class="mb-12">
+            <p class="text-xs text-brand-gray uppercase tracking-wider mb-2">03 / A different kind of social</p>
+            <h2 class="text-3xl font-semibold">Less scrolling. More belonging.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Отзыв 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <p class="text-brand-dark font-medium mb-8 leading-relaxed">"Finally, a place where my work starts a conversation—not a race for attention."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                    <div>
+                        <p class="text-sm font-semibold">Maya Chen</p>
+                        <p class="text-xs text-brand-gray">Independent designer</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <p class="text-brand-dark font-medium mb-8 leading-relaxed">"I come for a little inspiration and leave with a new perspective. That's a good feeling."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                    <div>
+                        <p class="text-sm font-semibold">Daniel Brooks</p>
+                        <p class="text-xs text-brand-gray">Photographer</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Отзыв 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <p class="text-brand-dark font-medium mb-8 leading-relaxed">"It feels less like posting into the void and more like finding my people."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                    <div>
+                        <p class="text-sm font-semibold">Sofia Herrera</p>
+                        <p class="text-xs text-brand-gray">Writer & creator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-xs text-gray-400 mt-8 text-center">Illustrative testimonials for the concept.</p>
+    </section>
+
+    <!-- Футер (Footer) -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 max-w-lg">Make a little room for what matters.</h2>
+                    <p class="text-gray-400">You need less. You want connection. Your Nova.</p>
+                </div>
+                <a href="feed.html" class="bg-brand-teal text-brand-dark font-semibold px-8 py-4 rounded-full hover:bg-opacity-80 whitespace-nowrap">
+                    Get started →
+                </a>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700 text-sm text-gray-400 gap-4">
+                <div class="flex items-center gap-2">
+                    <!-- Логотип N в футере -->
+                    <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 80V20L80 80V20" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 80L80 80" stroke="#00E5C9" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
+                    <span class="text-white font-bold text-lg">N Nova</span>
+                </div>
+                
+                <p>© 2024 Nova</p>
+                
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white">About</a>
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                    <a href="#" class="hover:text-white">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

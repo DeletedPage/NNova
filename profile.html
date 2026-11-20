@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N Nova - Мой профиль</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { dark: '#1A2B3C', teal: '#00E5C9', gray: '#808080', light: '#F8F9FA', white: '#FFFFFF' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .grid-item:hover .overlay { opacity: 1; }
+    </style>
+</head>
+<body class="font-sans text-brand-dark bg-brand-light antialiased min-h-screen">
+
+    <div class="max-w-[1200px] mx-auto flex justify-center gap-8 px-4 lg:px-8">
+        <aside class="hidden lg:flex flex-col w-64 h-screen sticky top-0 py-6 border-r border-gray-200/60 pr-4">
+            <a href="index.html" class="flex items-center gap-2 mb-10 px-3 cursor-pointer">
+                <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 80V20L80 80V20" stroke="#1A2B3C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 80L80 80" stroke="#00E5C9" stroke-width="12" stroke-linecap="round"/>
+                </svg>
+                <span class="text-2xl font-bold tracking-tight">N Nova</span>
+            </a>
+
+            <nav class="flex-1 space-y-2">
+                <a href="feed.html" class="flex items-center gap-4 px-3 py-3 rounded-xl text-brand-gray hover:bg-gray-100 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Главная
+                </a>
+                <a href="profile.html" class="flex items-center gap-4 px-3 py-3 rounded-xl bg-gray-200/50 font-semibold text-brand-dark transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    Мой профиль
+                </a>
+            </nav>
+
+            <button class="mt-6 w-full bg-brand-dark text-white font-semibold py-3 rounded-xl hover:bg-opacity-90 transition">Создать пост</button>
+
+            <a href="profile.html" class="mt-auto flex items-center gap-3 px-3 py-4 hover:bg-gray-100 rounded-xl cursor-pointer transition">
+                <div class="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="User" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm font-semibold" id="sidebar-name">Анна Соколова</p>
+                    <p class="text-xs text-brand-gray">@annas</p>
+                </div>
+            </a>
+        </aside>
+
+        <main class="w-full max-w-[650px] py-6 pb-20">
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 mb-6 text-center">
+                <div class="flex justify-end mb-2">
+                    <button class="text-gray-400 hover:text-brand-dark transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                    </button>
+                </div>
+
+                <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden border-4 border-white shadow-md relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Анна" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-200">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                </div>
+
+                <h1 class="text-2xl font-bold mb-1" id="profile-name">Анна Соколова</h1>
+                <p class="text-brand-gray text-sm mb-3">@annas</p>
+                <p class="text-brand-dark text-sm mb-6 max-w-md mx-auto leading-relaxed" id="profile-bio">Дизайнер интерфейсов. Ищу тишину в шумном мире.</p>
+
+                <button onclick="openEditModal()" class="w-full bg-[#E0F8F5] text-brand-dark font-semibold py-3 rounded-2xl hover:bg-[#C9F4EF] transition mb-8">Редактировать</button>
+
+                <div class="flex justify-around items-center border-t border-gray-100 pt-6">
+                    <div class="flex flex-col items-center cursor-pointer hover:opacity-70 transition">
+                        <span class="text-xl font-bold text-brand-dark">111</span>
+                        <span class="text-xs text-brand-gray mt-1">постов</span>
+                    </div>
+                    <div class="flex flex-col items-center cursor-pointer hover:opacity-70 transition">
+                        <span class="text-xl font-bold text-brand-dark">11.1K</span>
+                        <span class="text-xs text-brand-gray mt-1">подписчиков</span>
+                    </div>
+                    <div class="flex flex-col items-center cursor-pointer hover:opacity-70 transition">
+                        <span class="text-xl font-bold text-brand-dark">111</span>
+                        <span class="text-xs text-brand-gray mt-1">подписок</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 min-h-[400px]">
+                <div class="flex gap-6 border-b border-gray-100 mb-6 text-[15px]">
+                    <button onclick="switchTab('posts')" id="tab-btn-posts" class="pb-3 font-semibold text-brand-dark border-b-2 border-brand-dark transition">Публикации</button>
+                    <button onclick="switchTab('reposts')" id="tab-btn-reposts" class="pb-3 font-medium text-brand-gray hover:text-brand-dark border-b-2 border-transparent transition">Репосты</button>
+                    <button onclick="switchTab('about')" id="tab-btn-about" class="pb-3 font-medium text-brand-gray hover:text-brand-dark border-b-2 border-transparent transition">О себе</button>
+                </div>
+
+                <div id="tab-content-posts" class="tab-content active">
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="grid-item aspect-[4/5] bg-gray-200 rounded-lg overflow-hidden relative cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover">
+                            <div class="overlay absolute inset-0 bg-black/40 flex items-center justify-center gap-4 text-white font-semibold opacity-0 transition duration-200">
+                                <span class="flex items-center gap-1"><svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 124</span>
+                            </div>
+                        </div>
+                        <div class="grid-item aspect-[4/5] bg-gray-200 rounded-lg overflow-hidden relative cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover">
+                            <div class="overlay absolute inset-0 bg-black/40 flex items-center justify-center gap-4 text-white font-semibold opacity-0 transition duration-200">
+                                <span class="flex items-center gap-1"><svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 89</span>
+                            </div>
+                        </div>
+                        <div class="grid-item aspect-[4/5] bg-gray-200 rounded-lg overflow-hidden relative cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover">
+                            <div class="overlay absolute inset-0 bg-black/40 flex items-center justify-center gap-4 text-white font-semibold opacity-0 transition duration-200">
+                                <span class="flex items-center gap-1"><svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 45</span>
+                            </div>
+                        </div>
+                        <div class="grid-item aspect-[4/5] bg-gray-200 rounded-lg overflow-hidden relative cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover">
+                            <div class="overlay absolute inset-0 bg-black/40 flex items-center justify-center gap-4 text-white font-semibold opacity-0 transition duration-200">
+                                <span class="flex items-center gap-1"><svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 210</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-content-reposts" class="tab-content">
+                    <div class="text-center text-brand-gray py-12">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <p>Пока нет репостов.</p>
+                    </div>
+                </div>
+
+                <div id="tab-content-about" class="tab-content">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-sm font-semibold text-brand-dark mb-2">Биография</h3>
+                            <p class="text-sm text-brand-gray leading-relaxed" id="about-bio">Привет! Я Анна, дизайнер интерфейсов с 5-летним опытом. Люблю минимализм, чистую типографику и продуманные детали.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- МОДАЛКА РЕДАКТИРОВАНИЯ -->
+    <div id="editModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center px-4">
+        <div class="bg-white rounded-3xl shadow-xl w-full max-w-md overflow-hidden transform transition-all">
+            <div class="flex justify-between items-center px-6 py-4 border-b border-gray-100">
+                <h2 class="text-lg font-bold text-brand-dark">Редактировать профиль</h2>
+                <button onclick="closeEditModal()" class="text-gray-400 hover:text-brand-dark p-1 rounded-full hover:bg-gray-100 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold text-brand-dark mb-2">Имя</label>
+                    <input type="text" id="input-name" value="Анна Соколова" class="w-full bg-brand-light border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-brand-dark mb-2">О себе (коротко)</label>
+                    <textarea id="input-bio" rows="3" class="w-full bg-brand-light border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal transition resize-none">Дизайнер интерфейсов. Ищу тишину в шумном мире.</textarea>
+                </div>
+            </div>
+
+            <div class="px-6 py-4 bg-gray-50 flex justify-end gap-3 border-t border-gray-100">
+                <button onclick="closeEditModal()" class="px-5 py-2.5 rounded-xl font-medium text-brand-gray hover:bg-gray-200 transition">Отмена</button>
+                <button onclick="saveProfile()" class="px-5 py-2.5 rounded-xl font-semibold bg-brand-teal text-brand-dark hover:bg-[#00C9B1] transition shadow-sm">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Мобильная навигация -->
+    <nav class="lg:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 flex justify-around py-3 z-50 px-2">
+        <a href="feed.html" class="text-brand-gray flex flex-col items-center gap-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        </a>
+        <a href="profile.html" class="text-brand-dark flex flex-col items-center gap-1">
+            <div class="w-6 h-6 rounded-full overflow-hidden border-2 border-brand-dark">
+                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="User" class="w-full h-full object-cover">
+            </div>
+        </a>
+    </nav>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('[id^="tab-btn-"]').forEach(btn => {
+                btn.classList.remove('text-brand-dark', 'font-semibold', 'border-brand-dark');
+                btn.classList.add('text-brand-gray', 'font-medium', 'border-transparent');
+            });
+            document.getElementById(`tab-content-${tabId}`).classList.add('active');
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            activeBtn.classList.remove('text-brand-gray', 'font-medium', 'border-transparent');
+            activeBtn.classList.add('text-brand-dark', 'font-semibold', 'border-brand-dark');
+        }
+
+        const modal = document.getElementById('editModal');
+
+        function openEditModal() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeEditModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        modal.addEventListener('click', function(e) { if (e.target === modal) closeEditModal(); });
+
+        function saveProfile() {
+            const newName = document.getElementById('input-name').value;
+            const newBio = document.getElementById('input-bio').value;
+
+            if(newName.trim() !== "") {
+                document.getElementById('profile-name').innerText = newName;
+                document.getElementById('sidebar-name').innerText = newName;
+            }
+            if(newBio.trim() !== "") {
+                document.getElementById('profile-bio').innerText = newBio;
+                const aboutBio = document.getElementById('about-bio');
+                if(aboutBio) aboutBio.innerText = newBio;
+            }
+
+            closeEditModal();
+            
+            const btn = document.querySelector('button[onclick="saveProfile()"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Сохранено!";
+            btn.classList.add('bg-green-400');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-green-400');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
